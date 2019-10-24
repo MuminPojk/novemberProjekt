@@ -11,10 +11,30 @@ namespace november_projekt
         static void Main(string[] args)
         {
 
-            Console.WriteLine("Press enter");
-            Console.ReadLine();
-            Console.WriteLine("You can`t tell me what to do. YAAAAA YEEEEEEEEEEEEEEEET");
-            Console.ReadLine();
+            Console.WriteLine("It is time to make your own potion! What do you want to do?");
+            Console.WriteLine("1. Check ingridients");
+            Console.WriteLine("2. Buy ingridients");
+            Console.WriteLine("3. Make a potion");
+            string input = Console.ReadLine();
+
+            if (input == "1")
+            {
+
+
+
+            }
+            else if (input == "2")
+            {
+
+
+
+            }
+            else if (input == "3")
+            {
+
+
+
+            }
 
         }
     }
