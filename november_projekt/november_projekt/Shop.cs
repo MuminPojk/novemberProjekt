@@ -27,7 +27,7 @@ namespace november_projekt
 
             return stock;
 
-        }
+        }// Tar bort stock så att affären kan en ny stock via metoden Stock
         public void CheckStock()
         {
             Console.WriteLine("This is what the shop has in store, it will get restocked the next time!");

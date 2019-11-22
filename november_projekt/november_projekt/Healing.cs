@@ -13,7 +13,7 @@ namespace november_projekt
         {
 
             name = "Heali peaily potion";
-            recipe = new string[]{ "spoon", "spoon", "knife"}; // spoon spoon knife
+            recipe = new string[]{ "spoon", "spoon", "fork"}; // spoon spoon knife
 
 
         }

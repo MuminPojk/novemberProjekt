@@ -41,7 +41,7 @@ namespace november_projekt
         
 
 
-        }
+        }// Denna metod kollar vad spelaren har för potions gjorda
         public void CheckInventory(List<string> inventoryKnife,List<string> inventorySpoon, List<string> inventoryFork, List<string> inventorySpork)
         { //Denna kollar vad man har i sin inventory
 
@@ -54,8 +54,9 @@ namespace november_projekt
 
 
 
-        }
-        public List<string> MakePotions(string[] recipe, List<string> inventorySpoon, List<string> inventoryFork, List<string> inventorySpork, List<string> inventoryKnife, List<string> inventoryStronk)
+        }//Denna metod talar om vad för ingredienser som spelarn köpt men som hen inte har använt
+        public List<string> MakePotions(string[] recipe, List<string> inventorySpoon, List<string> inventoryFork, List<string> inventorySpork, List<string> inventoryKnife, List<string> inventoryStronk)//Denna metod kollar om spelaren har rätt ingredienser för att göra en potion
+            //Om inte måste den gå och köpa rätt ingrdienser. Om spelaren har alla måste hen sätta in ingredienserna i rätt ordning för att få fram en potion, om hen inte lyckas måste hen göra om det
         {
 
             Console.WriteLine("What potion would you like to make");
