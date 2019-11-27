@@ -15,6 +15,7 @@ namespace november_projekt
             Shopkeeper g1 = new Shopkeeper();
             Shop g2 = new Shop();
             Stronk g3 = new Stronk();
+            Customer g4 = new Customer();
 
             while (dontStopmeNowBecauseIamHavingSuchAGoodTime) {
                 Console.WriteLine("1. Check ingridients");
@@ -101,6 +102,23 @@ namespace november_projekt
                 else if(input == "4"){
 
 
+                    g4.Customer1();
+
+                    Console.WriteLine("Do you want to give the customer their order");
+
+                    input = Console.ReadLine();
+
+                    if (input == "yes")
+                    {
+
+                       g1.money = g4.Customer1Buy(g1.inventoryPotion, g4.cost1, g1.money);
+
+                    }
+                    else if (input == "no")
+                    {
+                        Console.WriteLine("Okay then");
+
+                    }
 
 
                 }

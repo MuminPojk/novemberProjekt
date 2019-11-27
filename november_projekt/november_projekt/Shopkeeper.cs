@@ -17,7 +17,7 @@ namespace november_projekt
         public List<string> inventorySpoon = new List<string>();
         public List<string> inventoryFork = new List<string>();
         public List<string> inventorySpork = new List<string>();
-
+        public int money = 200;
         
         public List<string> inventoryPotion = new List<string>();
    
@@ -51,6 +51,7 @@ namespace november_projekt
             Console.WriteLine(inventoryKnife.Count + " knifes");
             Console.WriteLine(inventoryFork.Count + " forks");
             Console.WriteLine(inventorySpork.Count + " sporks");
+            Console.WriteLine(money);
 
 
 
@@ -94,13 +95,13 @@ namespace november_projekt
 
                 Console.WriteLine("Put the ingridens in the correct order to make the right potion");
 
+                
 
-
-                if (inventoryKnife.Count <= 2 && inventoryKnife.Count <= 1) {
+                if (inventoryKnife.Count >= 2 && inventoryKnife.Count >= 1) {
                     for (int i = 0; i < g1.recipe.Length; i++)
                     {
-                        input = Console.ReadLine();
 
+                        input = Console.ReadLine();
                         if (input == g1.recipe[i])
                         {
 
@@ -111,7 +112,7 @@ namespace november_projekt
                         else if (input != g1.recipe[i])
                         {
 
-                            Console.WriteLine("Wrong");//Lägg till failure finns en chans för explosinon
+                            Console.WriteLine("The porion fails but you manage to retrive the ingrideenses");//Lägg till failure finns en chans för explosinon
                             return inventoryPotion;
 
                         }
@@ -120,15 +121,14 @@ namespace november_projekt
                     }
 
                     inventoryPotion.Add("stronk potion");
+                    inventoryKnife.RemoveAt(0);
+                    inventoryKnife.RemoveAt(0);
+                    inventorySpork.RemoveAt(0);
                     return inventoryPotion;
 
 
                 }
             }
-                
-
-
-            
             else if (input == "speed")
             {
 
@@ -180,6 +180,9 @@ namespace november_projekt
                 }
 
                 inventoryPotion.Add("speed potion");
+                inventorySpoon.RemoveAt(0);
+                inventorySpoon.RemoveAt(0);
+                inventoryKnife.RemoveAt(0);
                 return inventoryPotion;
 
             }
@@ -234,7 +237,10 @@ namespace november_projekt
 
                 }
 
-                inventoryPotion.Add(" Healing potion");
+                inventoryPotion.Add("healing potion");
+                inventorySpoon.RemoveAt(0);
+                inventorySpoon.RemoveAt(0);
+                inventoryFork.RemoveAt(0);
                 return inventoryPotion;
 
 
@@ -291,6 +297,10 @@ namespace november_projekt
                 }
 
                 inventoryPotion.Add("Blue potion");
+                inventoryKnife.RemoveAt(0);
+                inventoryFork.RemoveAt(0);
+                inventorySpork.RemoveAt(0);
+
                 return inventoryPotion;
 
             }
