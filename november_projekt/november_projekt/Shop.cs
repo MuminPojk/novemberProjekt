@@ -11,7 +11,9 @@ namespace november_projekt
         public List<int> stock = new List<int>();
 
         Shopkeeper g1 = new Shopkeeper();
-        public string input;
+        Knife g2 = new Knife();
+      
+        
         static Random generator = new Random();
         //Metoder:
         //Buy= köper en grej och lägger in i shopkeepers inventory lista
@@ -20,12 +22,12 @@ namespace november_projekt
         public List<int> ClearStock()
         {
 
-            stock.RemoveAt(0);
+            stock.RemoveAt(0);//Tar bort allt som finns i listan stock
             stock.RemoveAt(0);
             stock.RemoveAt(0);
             stock.RemoveAt(0);
 
-            return stock;
+            return stock;//Retunerar den nu tomma listan
 
         }// Tar bort stock så att affären kan en ny stock via metoden Stock
         public void CheckStock()
@@ -44,12 +46,12 @@ namespace november_projekt
         public List<int> Stock()
         {
 
-            int knifeStock = generator.Next(1, 8);
+            int knifeStock = generator.Next(1, 8);//Slumpar fram olika antal ingredienser som sparas i varsin int
             int spoonStock = generator.Next(1, 7);
             int sporkStock = generator.Next(1, 4);
             int forkStock = generator.Next(1, 7);
 
-            stock.Add(knifeStock);
+            stock.Add(knifeStock);//Varje plats har varsit antal ingredienser, på stocks första plats kommer det alltid att vara hur många knifes som affären har just då
             stock.Add(spoonStock);
             stock.Add(sporkStock);
             stock.Add(forkStock);
@@ -59,10 +61,10 @@ namespace november_projekt
 
         }//Randomisar fram hur mycket av varje ingrediens som ska finnas i affären
 
-        public List<string> BuyKnife(string input, List<string> inventoryKnife, List<int> stock)
+        public (List<string> inventoryKnife, int money) BuyKnife(string input, List<string> inventoryKnife, List<int> stock, int knifeCost, int money)
         {
 
-            Console.WriteLine("How many would you like?");//Failsafe needed
+            Console.WriteLine("How many would you like?");
 
             input = Console.ReadLine();
 
@@ -70,7 +72,7 @@ namespace november_projekt
             int resultat;
             bool lyckad = int.TryParse(input, out resultat);
 
-            while (resultat > stock[0] || resultat < 0)
+            while (resultat > stock[0] || resultat < 0)//Kollar om det personen har skrivit in är lika mycket som stock har och att det är över 0. Spelaren får skriva om det tills den får något acceptabelt
             {
 
                 if (resultat > stock[0])
@@ -91,28 +93,41 @@ namespace november_projekt
 
             }
 
-            if (resultat <= stock[0] && resultat >= 0)
+            if (resultat <= stock[0] && resultat > 0)
             {
 
-                for (int i = 0; i < resultat; i++)
+                if (money >= knifeCost* resultat)// Kollar om personen har tillräckligt mycket pengar för att köpa så många ingredienser som de vill köpa
                 {
 
-                    g1.inventoryKnife.Add("spoon");
-                    
+                   
 
+                    for (int i = 0; i < resultat; i++) // Går igenom listan så många gånger som antalet knivar som spelaren ville köpa
+                    {
+
+                        g1.inventoryKnife.Add("spoon");// Vill man köpa två knivar kommer det då läggas in 2 knivar i spelarens inventory
+
+                        
+                        
+                        
+                    }
+
+                    money = money - (knifeCost* resultat);//Tar bort kostnaden av ingrdienserna från spelarens pengar.
+                    return (g1.inventoryKnife, money);
 
                 }
 
-                return g1.inventoryKnife;
+                Console.WriteLine("I am sorry you do not have enough money to buy that many knives, please come back later");
+                return (g1.inventoryKnife, money);
+
 
             }
 
 
-            return g1.inventoryKnife;
+            return (g1.inventoryKnife, money);
 
 
         }//Om man köper knivar läggs dessa in på spelarens inventory
-        public List<string> BuySpoon(string input, List<string> inventorySpoon, List<int> stock)
+        public (List<string> inventorySpoon, int money) BuySpoon(string input, List<string> inventorySpoon, List<int> stock, int money, int spoonCost)
         {
 
                 Console.WriteLine("How many would you like?");//Failsafe needed
@@ -143,28 +158,37 @@ namespace november_projekt
 
                 }
 
-                if(resultat <= stock[1] && resultat >= 0)
+            if (resultat <= stock[1] && resultat >= 0)
+            {
+
+                if (money >= spoonCost * resultat)
                 {
 
-                     for (int i = 0; i < resultat; i++)
-                     {
+                    for (int i = 0; i < resultat; i++)
+                    {
 
                         g1.inventorySpoon.Add("spoon");
-                      
 
 
-                     }
 
-                 return g1.inventorySpoon;
+                    }
+
+                    money = money - (spoonCost * resultat);
+                    return (g1.inventorySpoon, money);
 
                 }
+            }
+
+                
+
+                 
 
 
-            return g1.inventorySpoon;
+            return (g1.inventorySpoon, money);
 
 
         }//Om man köper skedar läggs dessa in på spelarens inventory
-        public List<string> BuySpork(string input, List<string> inventorySpork, List<int> stock)
+        public (List<string> inventorySpork, int money) BuySpork(string input, List<string> inventorySpork, List<int> stock, int sporkCost, int money)
         {
 
             Console.WriteLine("How many would you like?");//Failsafe needed
@@ -199,25 +223,29 @@ namespace november_projekt
             if (resultat <= stock[2] && resultat >= 0)
             {
 
-                for (int i = 0; i < resultat; i++)
-                {
+                if (money >= sporkCost * resultat) { 
 
-                    g1.inventorySpork.Add("spoon");
+                    for (int i = 0; i < resultat; i++)
+                    {
+
+                        g1.inventorySpork.Add("spoon");
 
 
 
+                    }
+
+                    money = money - (sporkCost * resultat);
+                    return (g1.inventorySpork, money);
                 }
-
-                return g1.inventorySpork;
 
             }
 
 
-            return g1.inventorySpork;
+            return (g1.inventorySpork, money);
 
 
         }//Om man köper sporkar läggs dessa in på spelarens inventory
-        public List<string> BuyFork(string input, List<string> inventoryFork, List<int> stock)
+        public (List<string> inventoryFork, int money) BuyFork(string input, List<string> inventoryFork, List<int> stock, int forkCost, int money)
         {
 
             Console.WriteLine("How many would you like?");//Failsafe needed
@@ -252,21 +280,27 @@ namespace november_projekt
             if (resultat <= stock[3] && resultat >= 0)
             {
 
-                for (int i = 0; i < resultat; i++)
-                {
+                if (money >= forkCost * resultat) { 
 
-                    g1.inventoryFork.Add("spoon");
+                     for (int i = 0; i < resultat; i++)
+                     {
+
+                        g1.inventoryFork.Add("spoon");
 
 
 
+                     }
+
+
+
+                      money = money - (forkCost * resultat);
+                      return (g1.inventoryFork, money);
                 }
-
-                return g1.inventoryFork;
 
             }
 
-
-            return g1.inventoryFork;
+            return (g1.inventoryFork, money);
+          
 
 
         }//Om man köper gafflar läggs dessa in på spelarens inventory

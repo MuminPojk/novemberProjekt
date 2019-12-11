@@ -9,12 +9,12 @@ namespace november_projekt
     class Healing : Potion
     {
 
-        public Healing()
+        public Healing()//Se basklass för tydligare beskrivning
         {
 
             name = "Heali peaily potion";
             recipe = new string[]{ "spoon", "spoon", "fork"}; // spoon spoon knife
-
+            cursedRecipe = new string[] { "cursed spoon", "cursed spoon", "cursed fork" };
 
         }
 

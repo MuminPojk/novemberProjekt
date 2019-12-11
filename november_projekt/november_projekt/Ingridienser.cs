@@ -8,19 +8,35 @@ namespace november_projekt
 {
     class Ingridiens
     {
+        
+        public string name;// I subklasserna kommer detta vara deras namn
+        public int cost; //Hur mycket ingrediensen kostar
+        public string description;// Är en string som beskriver ingrediensen och hintar till vilken potion den ska användas till
 
-        public string name;
-        public int cost;
-        public int weight;
-        public string description;
+        Shopkeeper g1 = new Shopkeeper();//Skapar en instans av shopkeeper för att komma åt dennes variabler
 
-        public virtual int Cursed()
+        Random generator = new Random();
+
+        public virtual List<string> Cursed(List<string> cursedItems, List<string> inventory, string item)// Skapar en random int, om inten är under 30 blir ett av itemsen som man köper cursed, och det läggs i cursed item inventory
         {
-            int potatis = 0;
-            return potatis;
+            int randomNumber = generator.Next(1, 100);
+
+            if (randomNumber <= 30)
+            {
+
+                Console.WriteLine("Something about this item seem.... off");
+                cursedItems.Add("cursed " + item);
+                inventory.RemoveAt(0);
+
+                return cursedItems;
+
+            }
+
+
+            return cursedItems ;
 
         }
-        public virtual void Descriptor()
+        public virtual void Descriptor()//Kommer skriva ut fakta om ingredienserna
         {
 
 

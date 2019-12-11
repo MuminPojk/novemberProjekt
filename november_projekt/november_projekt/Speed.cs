@@ -9,12 +9,12 @@ namespace november_projekt
     class Speed: Potion
     {
 
-        public Speed()
+        public Speed()//Se basklass för tydligare beskrivning
         {
 
             name = "Sped potion";
             recipe = new string[] { "spoon", "spoon", "knife" }; // spoon spoon knife
-
+            cursedRecipe = new string[] { "cursed spoon", "cursed spoon", "cursed knife" };
 
         }
 

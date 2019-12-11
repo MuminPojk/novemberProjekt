@@ -8,16 +8,18 @@ namespace november_projekt
 {
     class Shopkeeper
     {
-        Stronk g1 = new Stronk();
+        Stronk g1 = new Stronk();//Här skapas insantser av de olika potionen
         Speed g2 = new Speed();
         Healing g3 = new Healing();
         Blue g4 = new Blue();
+      
 
         public List<string> inventoryKnife = new List<string>();
         public List<string> inventorySpoon = new List<string>();
         public List<string> inventoryFork = new List<string>();
         public List<string> inventorySpork = new List<string>();
-        public int money = 200;
+        public List<string> cursedItem = new List<string>();
+        public int money = 500;
         
         public List<string> inventoryPotion = new List<string>();
    
@@ -41,7 +43,7 @@ namespace november_projekt
         
 
 
-        }// Denna metod kollar vad spelaren har för potions gjorda
+        }// Denna metod visar vad spelaren har för potions gjorda
         public void CheckInventory(List<string> inventoryKnife,List<string> inventorySpoon, List<string> inventoryFork, List<string> inventorySpork)
         { //Denna kollar vad man har i sin inventory
 
@@ -51,6 +53,12 @@ namespace november_projekt
             Console.WriteLine(inventoryKnife.Count + " knifes");
             Console.WriteLine(inventoryFork.Count + " forks");
             Console.WriteLine(inventorySpork.Count + " sporks");
+            for (int i = 0; i < cursedItem.Count; i++)
+            {
+
+                Console.WriteLine(cursedItem[i]);
+
+            }
             Console.WriteLine(money);
 
 
@@ -68,7 +76,7 @@ namespace november_projekt
             {
 
 
-                if (inventoryKnife.Count < 2 || inventorySpork.Count < 1)
+                if (inventoryKnife.Count < 2 || inventorySpork.Count < 1)//Kollar om man har tillräckligt med ingredienser för att göra sin potion
                 {
                     if (inventorySpork.Count < 1)
                     {
@@ -102,17 +110,17 @@ namespace november_projekt
                     {
 
                         input = Console.ReadLine();
-                        if (input == g1.recipe[i])
+                        if (input == g1.recipe[i])//Är ens input samma som i receptet så kommer man gå vidare tills man skrivit alla rätt
                         {
 
                             Console.WriteLine("Correct");
 
 
                         }
-                        else if (input != g1.recipe[i])
+                        else if (input != g1.recipe[i])//Är ens input INTE samma som i receptet så kommer man INTE gå vidare och man måste göra om tills man gör rätt
                         {
 
-                            Console.WriteLine("The porion fails but you manage to retrive the ingrideenses");//Lägg till failure finns en chans för explosinon
+                            Console.WriteLine("The potion fails but you manage to retrive the ingrideenses");//Lägg till failure finns en chans för explosinon
                             return inventoryPotion;
 
                         }
@@ -120,8 +128,8 @@ namespace november_projekt
 
                     }
 
-                    inventoryPotion.Add("stronk potion");
-                    inventoryKnife.RemoveAt(0);
+                    inventoryPotion.Add("stronk potion");//En ny potion kommer läggas in i spelarens inventory
+                    inventoryKnife.RemoveAt(0);//Antalet ingredienser som man använt kommer att försvinna
                     inventoryKnife.RemoveAt(0);
                     inventorySpork.RemoveAt(0);
                     return inventoryPotion;
@@ -308,6 +316,121 @@ namespace november_projekt
             return inventoryPotion;
             
         }
-       
+       /*public List<string> MakeCursedPotions(string[] cursedRecipe, List<string> cursedItem)
+        {
+            int antalCursedKnife = 0;
+            int antalCursedSpork = 0;
+            string input = Console.ReadLine();
+
+            if (input == "cursed stronk")
+            {
+
+                for (int i = 0; i < g1.cursedRecipe.Length; i++)
+                {
+
+                    if (cursedItem[i] == "cursed knife")
+                    {
+
+                        antalCursedKnife++;
+                        
+
+
+                    }
+                    else if (cursedItem[i]== "cursed spork")
+                    {
+
+                        antalCursedSpork++;
+
+                    }
+
+
+
+                }
+
+
+                if (antalCursedSpork < 1 || antalCursedKnife < 2)
+                {
+
+                    if (antalCursedKnife < 2)
+                    {
+
+                        Console.WriteLine("to few cursed knives");
+
+                    }
+                    else if (antalCursedSpork < 1)
+                    {
+
+
+                        Console.WriteLine("Too few cursed sporks");
+
+                    }
+
+
+                }
+
+                if (antalCursedKnife >= 2 && antalCursedSpork >= 1)
+                {
+
+
+                    for (int i = 0; i < g1.cursedRecipe.Length; i++)
+                    {
+
+                        input = Console.ReadLine();
+                        if (input == cursedRecipe[i])
+                        {
+
+                            Console.WriteLine("Correct");
+
+
+                        }
+                        else if (input != cursedRecipe[i])
+                        {
+
+                            Console.WriteLine("The potion fails but you manage to retrive the ingrideenses");//Lägg till failure finns en chans för explosinon
+                            return cursedItem;
+
+                        }
+
+
+                    }
+
+                    for (int i = 0; i < cursedItem.Count; i++)
+                    {
+
+
+                        cursedItem.RemoveAt("");
+
+                    }
+                    return cursedItem;
+
+
+
+
+                }
+
+
+            }
+            else if (input == "cursed speed")
+            {
+
+
+
+            }
+            else if (input == "cursed healing")
+            {
+
+
+            }
+            else if (input == "cursed blue")
+            {
+
+
+
+            }
+
+
+
+        }*/
+
     }
 }

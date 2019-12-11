@@ -15,9 +15,9 @@ namespace november_projekt
         //Sped
         //Man blir blå
 
-        public string name;
-        public string[] recipe;
-        public string color;
+        public string name;//namn på potion
+        public string[] recipe;// Receptet på potion
+        public string[] cursedRecipe;//recpit om man ska göra en cursed potion
 
        /* public virtual int Failure()
         {

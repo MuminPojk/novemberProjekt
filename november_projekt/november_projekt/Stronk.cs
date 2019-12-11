@@ -10,10 +10,11 @@ namespace november_projekt
     {
         // knife knife spork
 
-        public Stronk(){
+        public Stronk(){//Se basklass för tydligare beskrivning
 
             name = "stronki bonki potion";
             recipe = new string[]{ "knife", "knife", "spork"};
+            cursedRecipe = new string[] {"cursed knife","cursed knife", "cursed spork" };
 
 
 

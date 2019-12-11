@@ -12,10 +12,14 @@ namespace november_projekt
         public Fork()
         {
             name = "Featherd fork";
-            cost = 50;
-            weight = 10;
+            cost = 35;
+            
             description = "Forks are often used as projecttiles, and for that they need to be light and quick";
 
+        }
+        public override List<string> Cursed(List<string> cursedItems, List<string> inventory, string item)//Är exakt samma som grundmetoden i Ingredienser enda skillnaden är att den tar in olika inventorys och items
+        {
+            return base.Cursed(cursedItems, inventory, item);
         }
 
 

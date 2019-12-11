@@ -9,12 +9,12 @@ namespace november_projekt
     class Blue : Potion
     {
 
-        public Blue()
+        public Blue()//Se basklass för tydligare beskrivning
         {
 
             name = "Bluey stewy potion";
             recipe = new string[] { "spork", "fork", "knife" };
-
+            cursedRecipe = new string[] { "cursed spork", "cursed fork", "cursed knife" };
 
         }
         

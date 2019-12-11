@@ -12,10 +12,13 @@ namespace november_projekt
         public Spork()
         {
             name = "Screaming Spork";
-            cost = 140;
-            weight = 5;
+            cost = 85;
             description = "What in the hiddety heck is this used for?";
 
+        }
+        public override List<string> Cursed(List<string> cursedItems, List<string> inventory, string item)//Är exakt samma som grundmetoden i Ingredienser enda skillnaden är att den tar in olika inventorys och items
+        {
+            return base.Cursed(cursedItems, inventory, item);
         }
 
     }
