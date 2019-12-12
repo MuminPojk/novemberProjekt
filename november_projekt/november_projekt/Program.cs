@@ -21,8 +21,6 @@ namespace november_projekt
             Spoon g6 = new Spoon();
             Spork g7 = new Spork();
             Fork g8 = new Fork();
-            
-
 
             while (dontStopmeNowBecauseIamHavingSuchAGoodTime) {
                 Console.WriteLine("1. Check ingridients");
@@ -116,8 +114,22 @@ namespace november_projekt
                 }
                 else if (input == "4")
                 {
-                                
-                            g1.money = g4.Customer1Buy(g1.inventoryPotion, g4.cost1, g1.money);//Kollar om man har alla potions, har man dem så kommer man få betalt
+
+                    Console.WriteLine("Who do you want to give the order to 1 or 2?");
+
+                    input = Console.ReadLine();
+
+                    if (input == "1")
+                    {
+
+                        g1.money = g4.Customer1Buy(g1.inventoryPotion, g4.cost1, g1.money);//Kollar om man har alla potions, har man dem så kommer man få betalt
+                    }
+                    else if(input == "2")
+                    {
+
+                        g1.money = g4.Customer2Buy(g1.inventoryPotion, g4.cost2, g1.money);//Fungerar på samma sätt
+                    }
+
 
                 }
                 else if (input == "5")

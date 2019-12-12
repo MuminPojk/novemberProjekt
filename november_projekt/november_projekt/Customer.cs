@@ -45,7 +45,7 @@ namespace november_projekt
 
 
         }//Skriver ut kundens order
-        public int Customer1Buy(List<string> inventoryPotion, int cost1, int money)// Kollar först i shopkeepers inventory om den har det kunden frågar efter, har den det så får man pengar och pegarna retuneras
+        public int Customer1Buy(List<string> inventoryPotion, int cost1, int money)// Kollar först i shopkeepers inventory om den har det kunden frågar efter, har den det så får man pengar och pengarna retuneras
         {//Om man inte har rätt potions skickas man tillbaka till main screen
 
 
