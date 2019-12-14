@@ -10,8 +10,8 @@ namespace november_projekt
     {
         public List<int> stock = new List<int>();
 
-        Shopkeeper g1 = new Shopkeeper();
-        Knife g2 = new Knife();
+        Shopkeeper shopkeeper = new Shopkeeper();
+        
       
         
         static Random generator = new Random();
@@ -104,7 +104,7 @@ namespace november_projekt
                     for (int i = 0; i < resultat; i++) // Går igenom listan så många gånger som antalet knivar som spelaren ville köpa
                     {
 
-                        g1.inventoryKnife.Add("spoon");// Vill man köpa två knivar kommer det då läggas in 2 knivar i spelarens inventory
+                        shopkeeper.inventoryKnife.Add("spoon");// Vill man köpa två knivar kommer det då läggas in 2 knivar i spelarens inventory
 
                         
                         
@@ -112,18 +112,18 @@ namespace november_projekt
                     }
 
                     money = money - (knifeCost* resultat);//Tar bort kostnaden av ingrdienserna från spelarens pengar.
-                    return (g1.inventoryKnife, money);
+                    return (shopkeeper.inventoryKnife, money);
 
                 }
 
                 Console.WriteLine("I am sorry you do not have enough money to buy that many knives, please come back later");
-                return (g1.inventoryKnife, money);
+                return (shopkeeper.inventoryKnife, money);
 
 
             }
 
 
-            return (g1.inventoryKnife, money);
+            return (shopkeeper.inventoryKnife, money);
 
 
         }//Om man köper knivar läggs dessa in på spelarens inventory
@@ -167,14 +167,14 @@ namespace november_projekt
                     for (int i = 0; i < resultat; i++)
                     {
 
-                        g1.inventorySpoon.Add("spoon");
+                        shopkeeper.inventorySpoon.Add("spoon");
 
 
 
                     }
 
                     money = money - (spoonCost * resultat);
-                    return (g1.inventorySpoon, money);
+                    return (shopkeeper.inventorySpoon, money);
 
                 }
             }
@@ -184,7 +184,7 @@ namespace november_projekt
                  
 
 
-            return (g1.inventorySpoon, money);
+            return (shopkeeper.inventorySpoon, money);
 
 
         }//Om man köper skedar läggs dessa in på spelarens inventory
@@ -228,20 +228,20 @@ namespace november_projekt
                     for (int i = 0; i < resultat; i++)
                     {
 
-                        g1.inventorySpork.Add("spoon");
+                        shopkeeper.inventorySpork.Add("spoon");
 
 
 
                     }
 
                     money = money - (sporkCost * resultat);
-                    return (g1.inventorySpork, money);
+                    return (shopkeeper.inventorySpork, money);
                 }
 
             }
 
 
-            return (g1.inventorySpork, money);
+            return (shopkeeper.inventorySpork, money);
 
 
         }//Om man köper sporkar läggs dessa in på spelarens inventory
@@ -285,7 +285,7 @@ namespace november_projekt
                      for (int i = 0; i < resultat; i++)
                      {
 
-                        g1.inventoryFork.Add("spoon");
+                        shopkeeper.inventoryFork.Add("spoon");
 
 
 
@@ -294,12 +294,12 @@ namespace november_projekt
 
 
                       money = money - (forkCost * resultat);
-                      return (g1.inventoryFork, money);
+                      return (shopkeeper.inventoryFork, money);
                 }
 
             }
 
-            return (g1.inventoryFork, money);
+            return (shopkeeper.inventoryFork, money);
           
 
 

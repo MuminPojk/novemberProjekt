@@ -21,6 +21,10 @@ namespace november_projekt
         {
             return base.Cursed(cursedItems, inventory, item);
         }
+        public override void Descriptor(string name, int cost, string description)
+        {
+            base.Descriptor(name, cost, description);
+        }
 
 
     }

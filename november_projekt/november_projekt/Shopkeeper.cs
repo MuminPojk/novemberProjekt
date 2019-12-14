@@ -8,18 +8,18 @@ namespace november_projekt
 {
     class Shopkeeper
     {
-        Stronk g1 = new Stronk();//Här skapas insantser av de olika potionen
-        Speed g2 = new Speed();
-        Healing g3 = new Healing();
-        Blue g4 = new Blue();
+        Stronk strongPotion = new Stronk();//Här skapas insantser av de olika potionen
+        Speed speedPotion = new Speed();
+        Healing healingPotion = new Healing();
+        Blue bluePotion = new Blue();
       
 
-        public List<string> inventoryKnife = new List<string>();
+        public List<string> inventoryKnife = new List<string>();// Här kommer antal knivar, skedar, gafflar, sporks och cursed items som spelaren har vara
         public List<string> inventorySpoon = new List<string>();
         public List<string> inventoryFork = new List<string>();
         public List<string> inventorySpork = new List<string>();
         public List<string> cursedItem = new List<string>();
-        public int money = 500;
+        public int money = 500;// Detta är antal pengar som spelaren har
         
         public List<string> inventoryPotion = new List<string>();
    
@@ -64,11 +64,13 @@ namespace november_projekt
 
 
         }//Denna metod talar om vad för ingredienser som spelarn köpt men som hen inte har använt
+         //dubbel kolla med stonk potion och så vidare
         public List<string> MakePotions(string[] recipe, List<string> inventorySpoon, List<string> inventoryFork, List<string> inventorySpork, List<string> inventoryKnife, List<string> inventoryStronk)//Denna metod kollar om spelaren har rätt ingredienser för att göra en potion
             //Om inte måste den gå och köpa rätt ingrdienser. Om spelaren har alla måste hen sätta in ingredienserna i rätt ordning för att få fram en potion, om hen inte lyckas måste hen göra om det
         {
 
             Console.WriteLine("What potion would you like to make");
+            Console.WriteLine("Write either stronk, healing, speed or blue!");
 
             string input = Console.ReadLine();
 
@@ -81,18 +83,18 @@ namespace november_projekt
                     if (inventorySpork.Count < 1)
                     {
 
-                        Console.WriteLine("To few sporks");
+                        Console.WriteLine("You have to few sporks to make this potion");
                         return inventoryPotion;
                     }
                     else if (inventorySpork.Count < 1 && inventoryKnife.Count < 2)
                     {
 
-                        Console.WriteLine("To few knifes and sporks");
+                        Console.WriteLine("You have to few knifes and sporks to make this potion");
                         return inventoryPotion;
                     }
                     else if (inventoryKnife.Count < 2)
                     {
-                        Console.WriteLine("To few knifes ");
+                        Console.WriteLine("You have to few knifes to make this potion");
                         return inventoryPotion;
 
                     }
@@ -101,26 +103,28 @@ namespace november_projekt
                 
 
 
-                Console.WriteLine("Put the ingridens in the correct order to make the right potion");
+                Console.WriteLine("Put the correct ingridenses in the correct order to make the right potion!");
+                Console.WriteLine("Write either spoon, spork, fork or knife");
+                Console.WriteLine("You can check out recipes in the  check out potion option on the menu");
 
                 
 
                 if (inventoryKnife.Count >= 2 && inventoryKnife.Count >= 1) {
-                    for (int i = 0; i < g1.recipe.Length; i++)
+                    for (int i = 0; i < strongPotion.recipe.Length; i++)
                     {
 
                         input = Console.ReadLine();
-                        if (input == g1.recipe[i])//Är ens input samma som i receptet så kommer man gå vidare tills man skrivit alla rätt
+                        if (input == strongPotion.recipe[i])//Är ens input samma som i receptet så kommer man gå vidare tills man skrivit alla rätt
                         {
 
-                            Console.WriteLine("Correct");
+                            Console.WriteLine("That is correct! Continue");
 
 
                         }
-                        else if (input != g1.recipe[i])//Är ens input INTE samma som i receptet så kommer man INTE gå vidare och man måste göra om tills man gör rätt
+                        else if (input != strongPotion.recipe[i])//Är ens input INTE samma som i receptet så kommer man INTE gå vidare och man måste göra om tills man gör rätt
                         {
 
-                            Console.WriteLine("The potion fails but you manage to retrive the ingrideenses");//Lägg till failure finns en chans för explosinon
+                            Console.WriteLine("The potion fails but you manage to retrive the ingrideenses, did you write the right ingridiens? Or did you have the order wrong?");//Lägg till failure finns en chans för explosinon
                             return inventoryPotion;
 
                         }
@@ -145,41 +149,44 @@ namespace november_projekt
                     if (inventoryKnife.Count < 1)
                     {
 
-                        Console.WriteLine("To few knifes");
+                        Console.WriteLine("You have to few knife to make this potion");
                         return inventoryPotion;
                     }
                     else if (inventoryKnife.Count < 1 && inventorySpoon.Count < 2)
                     {
 
-                        Console.WriteLine("To few knifes and spoons");
+                        Console.WriteLine("You have to few spoons and knifes to make this potion");
                         return inventoryPotion;
                     }
                     else if (inventorySpoon.Count < 2)
                     {
-                        Console.WriteLine("To few spoons ");
+                        Console.WriteLine("You have to few spoons to make this potion");
                         return inventoryPotion;
 
                     }
 
                 }
-                    Console.WriteLine("Put the ingridens in the correct order to make the right potion");
+                   
+                Console.WriteLine("Put the correct ingridenses in the correct order to make the right potion!");
+                Console.WriteLine("Write either spoon, spork, fork or knife");
+                Console.WriteLine("You can check out recipes in the  check out potion option on the menu");
 
 
-                for (int i = 0; i < g2.recipe.Length; i++)
+                for (int i = 0; i < speedPotion.recipe.Length; i++)
                 {
                     input = Console.ReadLine();
 
-                    if (input == g2.recipe[i])
+                    if (input == speedPotion.recipe[i])
                     {
 
                         Console.WriteLine("Correct");
 
 
                     }
-                    else if (input != g2.recipe[i])
+                    else if (input != speedPotion.recipe[i])
                     {
 
-                        Console.WriteLine("Wrong");//Lägg till failure finns en chans för explosinon
+                        Console.WriteLine("The potion fails but you manage to retrive the ingrideenses, did you write the right ingridiens ? Or did you have the order wrong ?");//Lägg till failure finns en chans för explosinon
                         return inventoryPotion;
 
                     }
@@ -202,42 +209,44 @@ namespace november_projekt
                     if (inventoryFork.Count < 1)
                     {
 
-                        Console.WriteLine("To few forks");
+                        Console.WriteLine("You have to few forks to make this potion");
                         return inventoryPotion;
                     }
                     else if (inventoryFork.Count < 1 && inventorySpoon.Count < 2)
                     {
 
-                        Console.WriteLine("To few forks and spoons");
+                        Console.WriteLine("You have to few knifes and spoons to make this potion");
                         return inventoryPotion;
                     }
                     else if (inventorySpoon.Count < 2)
                     {
-                        Console.WriteLine("To few spoons ");
+                        Console.WriteLine("You have to few spoons to make this potion");
                         return inventoryPotion;
 
                     }
 
                 }
 
-                Console.WriteLine("Put the ingridens in the correct order to make the right potion");
+                Console.WriteLine("Put the correct ingridenses in the correct order to make the right potion!");
+                Console.WriteLine("Write either spoon, spork, fork or knife");
+                Console.WriteLine("You can check out recipes in the  check out potion option on the menu");
 
 
-                for (int i = 0; i < g3.recipe.Length; i++)
+                for (int i = 0; i < healingPotion.recipe.Length; i++)
                 {
                     input = Console.ReadLine();
 
-                    if (input == g3.recipe[i])
+                    if (input == healingPotion.recipe[i])
                     {
 
                         Console.WriteLine("Correct");
 
 
                     }
-                    else if (input != g3.recipe[i])
+                    else if (input != healingPotion.recipe[i])
                     {
 
-                        Console.WriteLine("Wrong");//Lägg till failure finns en chans för explosinon
+                        Console.WriteLine("The potion fails but you manage to retrive the ingrideenses, did you write the right ingridiens ? Or did you have the order wrong ?");//Lägg till failure finns en chans för explosinon
                         return inventoryPotion;
 
                     }
@@ -261,42 +270,44 @@ namespace november_projekt
                     if (inventoryKnife.Count < 1)
                     {
 
-                        Console.WriteLine("To few knifes");
+                        Console.WriteLine("You have to few knifes to make this potion");
                         return inventoryPotion;
                     }
                     else if (inventorySpork.Count < 1 )
                     {
 
-                        Console.WriteLine("To few sporks");
+                        Console.WriteLine("You have to few sporks to make this potion");
                         return inventoryPotion;
                     }
                     else if (inventoryFork.Count < 1)
                     {
-                        Console.WriteLine("To few spoons ");
+                        Console.WriteLine(" You have to few forks to make this potion");
                         return inventoryPotion;
 
                     }
 
                 }
 
-                Console.WriteLine("Put the ingridens in the correct order to make the right potion");
+                Console.WriteLine("Put the correct ingridenses in the correct order to make the right potion!");
+                Console.WriteLine("Write either spoon, spork, fork or knife");
+                Console.WriteLine("You can check out recipes in the  check out potion option on the menu");
 
 
-                for (int i = 0; i < g4.recipe.Length; i++)
+                for (int i = 0; i < bluePotion.recipe.Length; i++)
                 {
                     input = Console.ReadLine();
 
-                    if (input == g4.recipe[i])
+                    if (input == bluePotion.recipe[i])
                     {
 
                         Console.WriteLine("Correct");
 
 
                     }
-                    else if (input != g4.recipe[i])
+                    else if (input != bluePotion.recipe[i])
                     {
 
-                        Console.WriteLine("Wrong");//Lägg till failure finns en chans för explosinon
+                        Console.WriteLine("The potion fails but you manage to retrive the ingrideenses, did you write the right ingridiens ? Or did you have the order wrong ?");//Lägg till failure finns en chans för explosinon
                         return inventoryPotion;
 
                     }
@@ -316,121 +327,6 @@ namespace november_projekt
             return inventoryPotion;
             
         }
-       /*public List<string> MakeCursedPotions(string[] cursedRecipe, List<string> cursedItem)
-        {
-            int antalCursedKnife = 0;
-            int antalCursedSpork = 0;
-            string input = Console.ReadLine();
-
-            if (input == "cursed stronk")
-            {
-
-                for (int i = 0; i < g1.cursedRecipe.Length; i++)
-                {
-
-                    if (cursedItem[i] == "cursed knife")
-                    {
-
-                        antalCursedKnife++;
-                        
-
-
-                    }
-                    else if (cursedItem[i]== "cursed spork")
-                    {
-
-                        antalCursedSpork++;
-
-                    }
-
-
-
-                }
-
-
-                if (antalCursedSpork < 1 || antalCursedKnife < 2)
-                {
-
-                    if (antalCursedKnife < 2)
-                    {
-
-                        Console.WriteLine("to few cursed knives");
-
-                    }
-                    else if (antalCursedSpork < 1)
-                    {
-
-
-                        Console.WriteLine("Too few cursed sporks");
-
-                    }
-
-
-                }
-
-                if (antalCursedKnife >= 2 && antalCursedSpork >= 1)
-                {
-
-
-                    for (int i = 0; i < g1.cursedRecipe.Length; i++)
-                    {
-
-                        input = Console.ReadLine();
-                        if (input == cursedRecipe[i])
-                        {
-
-                            Console.WriteLine("Correct");
-
-
-                        }
-                        else if (input != cursedRecipe[i])
-                        {
-
-                            Console.WriteLine("The potion fails but you manage to retrive the ingrideenses");//Lägg till failure finns en chans för explosinon
-                            return cursedItem;
-
-                        }
-
-
-                    }
-
-                    for (int i = 0; i < cursedItem.Count; i++)
-                    {
-
-
-                        cursedItem.RemoveAt("");
-
-                    }
-                    return cursedItem;
-
-
-
-
-                }
-
-
-            }
-            else if (input == "cursed speed")
-            {
-
-
-
-            }
-            else if (input == "cursed healing")
-            {
-
-
-            }
-            else if (input == "cursed blue")
-            {
-
-
-
-            }
-
-
-
-        }*/
-
+       
     }
 }

@@ -12,15 +12,19 @@ namespace november_projekt
         {
             bool dontStopmeNowBecauseIamHavingSuchAGoodTime = true;
             Console.WriteLine("It is time to make your own potion! What do you want to do?");
+            Console.WriteLine("To select something just type the number of it!");
             
-            Shopkeeper g1 = new Shopkeeper();
-            Shop g2 = new Shop();
-            Stronk g3 = new Stronk();
-            Customer g4 = new Customer();
-            Knife g5 = new Knife();
-            Spoon g6 = new Spoon();
-            Spork g7 = new Spork();
-            Fork g8 = new Fork();
+            Shopkeeper shopKeeper = new Shopkeeper();
+            Shop shop = new Shop();
+            Stronk strongPotion = new Stronk();
+            Speed speedPotion = new Speed();
+            Healing healingPotion = new Healing();
+            Blue bluePotion = new Blue();
+            Customer customer = new Customer();
+            Knife knife = new Knife();
+            Spoon spoon = new Spoon();
+            Spork spork = new Spork();
+            Fork fork = new Fork();
 
             while (dontStopmeNowBecauseIamHavingSuchAGoodTime) {
                 Console.WriteLine("1. Check ingridients");
@@ -30,6 +34,8 @@ namespace november_projekt
                 Console.WriteLine("5. Check potions");
                 Console.WriteLine("6. Stop playing the game");
                 Console.WriteLine("7. Check Customer`s order");
+                Console.WriteLine("8. Check out the ingridneses names and cost");
+                Console.WriteLine("9. Check out the potions name and cost");
 
 
                 string input = Console.ReadLine();
@@ -37,18 +43,18 @@ namespace november_projekt
                 if (input == "1")
                 {
 
-                    g1.CheckInventory(g1.inventoryKnife, g1.inventorySpoon, g1.inventoryFork, g1.inventorySpork);//Kollar vilka ingredienser man har köpt
+                    shopKeeper.CheckInventory(shopKeeper.inventoryKnife, shopKeeper.inventorySpoon, shopKeeper.inventoryFork, shopKeeper.inventorySpork);//Kollar vilka ingredienser man har köpt
 
                 }
                 else if (input == "2")
                 {
                     //The shop gets stocked
                     // One can check wares or buy wares
-                    g2.Stock();//Ett antal av varje ingrediens kommer slumpas fram
+                    shop.Stock();//Ett antal av varje ingrediens kommer slumpas fram
 
                     Console.WriteLine("Welcome to gilgamesh gloriusly godlike goods");
 
-                    g2.CheckStock();//Skriver ut de olika ingrdienserna och hur många det finns av dem
+                    shop.CheckStock();//Skriver ut de olika ingrdienserna och hur många det finns av dem
 
 
                     Console.WriteLine("Do you want to buy something?"); // Glöm inte att kolla ifall spelaren har pengar och i fall affären har grjen
@@ -66,34 +72,34 @@ namespace november_projekt
                         if (input == "spoon")
                         {
 
-                            (g1.inventorySpoon, g1.money) = g2.BuySpoon(input, g1.inventorySpoon, g2.stock, g1.money, g6.cost);//Kommer lägga in antal skedar man har köpt och ta så mycket pengar som ingredienserna kostar
-                            g1.cursedItem = g5.Cursed(g1.cursedItem, g1.inventorySpoon, input);//Kommer kanske göra om en av ingredianserna till cursed och den läggs in i en cursed item lista
+                            (shopKeeper.inventorySpoon, shopKeeper.money) = shop.BuySpoon(input, shopKeeper.inventorySpoon, shop.stock, shopKeeper.money, spoon.cost);//Kommer lägga in antal skedar man har köpt och ta så mycket pengar som ingredienserna kostar
+                            shopKeeper.cursedItem = spoon.Cursed(shopKeeper.cursedItem, shopKeeper.inventorySpoon, input);//Kommer kanske göra om en av ingredianserna till cursed och den läggs in i en cursed item lista
 
                         }
                         else if (input == "knife")
                         {
 
-                            (g1.inventoryKnife, g1.money) = g2.BuyKnife(input, g1.inventoryKnife, g2.stock, g5.cost, g1.money);//Kommer lägga in antal knivar man har köpt och ta så mycket pengar som ingredienserna kostar
-                            g1.cursedItem = g5.Cursed(g1.cursedItem, g1.inventoryKnife, input);//Kommer kanske göra om en av ingredianserna till cursed och den läggs in i en cursed item lista
+                            (shopKeeper.inventoryKnife, shopKeeper.money) = shop.BuyKnife(input, shopKeeper.inventoryKnife, shop.stock, knife.cost, shopKeeper.money);//Kommer lägga in antal knivar man har köpt och ta så mycket pengar som ingredienserna kostar
+                            shopKeeper.cursedItem = knife.Cursed(shopKeeper.cursedItem, shopKeeper.inventoryKnife, input);//Kommer kanske göra om en av ingredianserna till cursed och den läggs in i en cursed item lista
 
 
                         }
                         else if (input == "fork")
                         {
 
-                            (g1.inventoryFork, g1.money) = g2.BuyFork(input, g1.inventoryFork, g2.stock, g8.cost, g1.money);//Kommer lägga in antal gafflar man har köpt och ta så mycket pengar som ingredienserna kostar
-                            g1.cursedItem = g5.Cursed(g1.cursedItem, g1.inventoryFork, input);//Kommer kanske göra om en av ingredianserna till cursed och den läggs in i en cursed item lista
+                            (shopKeeper.inventoryFork, shopKeeper.money) = shop.BuyFork(input, shopKeeper.inventoryFork, shop.stock, fork.cost, shopKeeper.money);//Kommer lägga in antal gafflar man har köpt och ta så mycket pengar som ingredienserna kostar
+                            shopKeeper.cursedItem = fork.Cursed(shopKeeper.cursedItem, shopKeeper.inventoryFork, input);//Kommer kanske göra om en av ingredianserna till cursed och den läggs in i en cursed item lista
                         }
                         else if (input == "spork")
                         {
 
-                            (g1.inventorySpork, g1.money) = g2.BuySpork(input, g1.inventorySpork, g2.stock, g7.cost, g1.money);//Kommer lägga in antal sporks man har köpt och ta så mycket pengar som ingredienserna kostar
-                            g1.cursedItem = g5.Cursed(g1.cursedItem, g1.inventorySpork, input);//Kommer kanske göra om en av ingredianserna till cursed och den läggs in i en cursed item lista
+                            (shopKeeper.inventorySpork, shopKeeper.money) = shop.BuySpork(input, shopKeeper.inventorySpork, shop.stock, spork.cost, shopKeeper.money);//Kommer lägga in antal sporks man har köpt och ta så mycket pengar som ingredienserna kostar
+                            shopKeeper.cursedItem = spork.Cursed(shopKeeper.cursedItem, shopKeeper.inventorySpork, input);//Kommer kanske göra om en av ingredianserna till cursed och den läggs in i en cursed item lista
 
                         }
 
 
-                        g2.ClearStock();//Tar sedan bort stock så att nya värden kan slumpas fram nästa gång man ska köpa något.
+                        shop.ClearStock();//Tar sedan bort stock så att nya värden kan slumpas fram nästa gång man ska köpa något.
                         Console.WriteLine("Thank you bye");
                     }
                     else if (input == "no")
@@ -109,25 +115,25 @@ namespace november_projekt
                 else if (input == "3")
                 {
 
-                    g1.inventoryPotion = g1.MakePotions(g3.recipe, g1.inventorySpoon, g1.inventoryFork, g1.inventorySpork, g1.inventoryKnife, g1.inventoryPotion);// Kommer kolla om man har allt för att göra sin potion och skickar tillbaka de man lyckas göra, de läggs i en lista som heter potion inventory
+                    shopKeeper.inventoryPotion = shopKeeper.MakePotions(strongPotion.recipe, shopKeeper.inventorySpoon, shopKeeper.inventoryFork, shopKeeper.inventorySpork, shopKeeper.inventoryKnife, shopKeeper.inventoryPotion);// Kommer kolla om man har allt för att göra sin potion och skickar tillbaka de man lyckas göra, de läggs i en lista som heter potion inventory
 
                 }
                 else if (input == "4")
                 {
 
-                    Console.WriteLine("Who do you want to give the order to 1 or 2?");
+                    Console.WriteLine("Who do you want to give the order to customer 1 or 2?");
 
                     input = Console.ReadLine();
 
                     if (input == "1")
                     {
 
-                        g1.money = g4.Customer1Buy(g1.inventoryPotion, g4.cost1, g1.money);//Kollar om man har alla potions, har man dem så kommer man få betalt
+                        shopKeeper.money = customer.Customer1Buy(shopKeeper.inventoryPotion, customer.cost1, shopKeeper.money);//Kollar om man har alla potions, har man dem så kommer man få betalt
                     }
                     else if(input == "2")
                     {
 
-                        g1.money = g4.Customer2Buy(g1.inventoryPotion, g4.cost2, g1.money);//Fungerar på samma sätt
+                        shopKeeper.money = customer.Customer2Buy(shopKeeper.inventoryPotion, customer.cost2, shopKeeper.money);//Fungerar på samma sätt
                     }
 
 
@@ -135,7 +141,7 @@ namespace november_projekt
                 else if (input == "5")
                 {
 
-                    g1.CheckPotion(g1.inventoryPotion);// Skriver ut vilka potions man har gjorda
+                    shopKeeper.CheckPotion(shopKeeper.inventoryPotion);// Skriver ut vilka potions man har gjorda
 
                 }
                 else if (input == "6")//Stänger av spelet
@@ -154,10 +160,27 @@ namespace november_projekt
                 else if(input == "7")
                 {
 
-                    g4.Customer1();//Kallar kundens order
-                    g4.Customer2();
+                    customer.Customer1();//Kallar kundens order
+                    customer.Customer2();
 
 
+                }
+                else if (input == "8")
+                {
+
+                    strongPotion.DescriptionPotion(strongPotion.name, strongPotion.recipe);
+                    speedPotion.DescriptionPotion(speedPotion.name, speedPotion.recipe);
+                    healingPotion.DescriptionPotion(healingPotion.name, healingPotion.recipe);
+                    bluePotion.DescriptionPotion(bluePotion.name, bluePotion.recipe);
+
+                }
+                else if (input == "9")
+                {
+
+                    fork.Descriptor(fork.name, fork.cost, fork.description);
+                    spoon.Descriptor(spoon.name, spoon.cost, spoon.description);
+                    spork.Descriptor(spork.name, spork.cost, spork.description);
+                    knife.Descriptor(knife.name, knife.cost, knife.description);
                 }
 
                 Console.ReadLine();

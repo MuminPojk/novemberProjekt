@@ -27,10 +27,11 @@ namespace november_projekt
 
            
         }
-        public override void Descriptor()
+        public override void Descriptor(string name, int cost, string description)
         {
-            
+            base.Descriptor(name, cost, description);
         }
+
 
 
 

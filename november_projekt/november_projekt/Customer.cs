@@ -10,7 +10,7 @@ namespace november_projekt
     {
         public int cost1 = 50;
         public int cost2 = 100;
-        Shopkeeper g1 = new Shopkeeper();
+        
         //Three metoder som ska vara de olika customers
 
         public void Customer1()
@@ -79,14 +79,14 @@ namespace november_projekt
                 if (antalHealPotion < 2)
                 {
 
-                    Console.WriteLine("to few healing potions");
+                    Console.WriteLine("You don`t have enough healing potions to give this order away just yet");
 
                 }
                 else if (antalSpeedPotion < 1)
                 {
 
 
-                    Console.WriteLine("Too few speedpotions");
+                    Console.WriteLine("You don`t have enough speed potions potions to give this order away just yet");
 
                 }
 
@@ -137,7 +137,7 @@ namespace november_projekt
         }
             
         
-        public int Customer2Buy(List<string> inventoryPotion, int cost2, int money)
+        public int Customer2Buy(List<string> inventoryPotion, int cost2, int money)//Fungerar på samma sätt som Customer1Buy
         {
 
             int antalHealPotion = 0;
@@ -178,20 +178,20 @@ namespace november_projekt
                 if (antalHealPotion < 1)
                 {
 
-                    Console.WriteLine("to few healing potions");
+                    Console.WriteLine("You don`t have enough healing potions to give this order away just yet");
 
                 }
                 else if (antalSpeedPotion < 1)
                 {
 
 
-                    Console.WriteLine("Too few speed potions");
+                    Console.WriteLine("You don`t have enough speed potions to give this order away just yet");
 
                 }
-                else //KOLLA OM DETTA FUNGERAR
+                else if(antalStronkPotion < 1)
                 {
 
-                    Console.WriteLine("Too few stronk potions");
+                    Console.WriteLine("You don`t have enough stronk potions to give this order away just yet");
 
                 }
 
@@ -238,7 +238,7 @@ namespace november_projekt
 
             return money;
 
-        }//Fungerar på samma sätt som Customer1Buy
+        }
 
     }
 }

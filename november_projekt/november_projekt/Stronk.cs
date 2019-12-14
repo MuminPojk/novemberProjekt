@@ -19,6 +19,12 @@ namespace november_projekt
 
 
         }
+
+        public override void DescriptionPotion(string name, string[] recipe)
+        {
+            base.DescriptionPotion(name, recipe);
+        }
+
     }
         
 

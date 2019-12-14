@@ -8,12 +8,10 @@ namespace november_projekt
 {
     class Ingridiens
     {
-        
+
         public string name;// I subklasserna kommer detta vara deras namn
         public int cost; //Hur mycket ingrediensen kostar
         public string description;// Är en string som beskriver ingrediensen och hintar till vilken potion den ska användas till
-
-        Shopkeeper g1 = new Shopkeeper();//Skapar en instans av shopkeeper för att komma åt dennes variabler
 
         Random generator = new Random();
 
@@ -36,15 +34,17 @@ namespace november_projekt
             return cursedItems ;
 
         }
-        public virtual void Descriptor()//Kommer skriva ut fakta om ingredienserna
+        public virtual void Descriptor(string name, int cost, string description)//Kommer skriva ut fakta om ingredienserna
         {
 
+            Console.WriteLine(name);
+            Console.WriteLine(cost);
+            Console.WriteLine(description);
 
 
         }
 
-        //Här kan du ge namn, vikt och pris åt olika ingredienser
-        //4 olika ingredienser:
+        
       
         
     }

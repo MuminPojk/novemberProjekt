@@ -17,6 +17,9 @@ namespace november_projekt
             cursedRecipe = new string[] { "cursed spoon", "cursed spoon", "cursed fork" };
 
         }
-
+        public override void DescriptionPotion(string name, string[] recipe)
+        {
+            base.DescriptionPotion(name, recipe);
+        }
     }
 }

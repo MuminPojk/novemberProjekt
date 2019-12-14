@@ -19,11 +19,22 @@ namespace november_projekt
         public string[] recipe;// Receptet på potion
         public string[] cursedRecipe;//recpit om man ska göra en cursed potion
 
-       /* public virtual int Failure()
+       public virtual void DescriptionPotion(string name, string[] recipe)
         {
+
+            Console.WriteLine(name);
+            for (int i = 0; i < recipe.Length; i++)
+            {
+
+                Console.WriteLine("Name of potion");
+                Console.WriteLine(name);
+                Console.WriteLine("Recipe of the potion");
+                Console.WriteLine(recipe[i]);
+
+            }
            
 
-        }*/
+        }
 
 
     }
