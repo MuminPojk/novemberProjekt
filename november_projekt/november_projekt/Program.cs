@@ -72,14 +72,14 @@ namespace november_projekt
                         if (input == "spoon")
                         {
 
-                            (shopKeeper.inventorySpoon, shopKeeper.money) = shop.BuySpoon(input, shopKeeper.inventorySpoon, shop.stock, shopKeeper.money, spoon.cost);//Kommer lägga in antal skedar man har köpt och ta så mycket pengar som ingredienserna kostar
+                            (shopKeeper.inventorySpoon, shopKeeper.money) = shop.BuySpoon(input, shopKeeper.inventorySpoon, shop.stock, shopKeeper.money, spoon.cost);//Kommer lägga in antal skedar man har köpt och ta så mycket pengar som ingredienserna kostar. Denna kod använder sig av Tuples
                             shopKeeper.cursedItem = spoon.Cursed(shopKeeper.cursedItem, shopKeeper.inventorySpoon, input);//Kommer kanske göra om en av ingredianserna till cursed och den läggs in i en cursed item lista
 
                         }
                         else if (input == "knife")
                         {
 
-                            (shopKeeper.inventoryKnife, shopKeeper.money) = shop.BuyKnife(input, shopKeeper.inventoryKnife, shop.stock, knife.cost, shopKeeper.money);//Kommer lägga in antal knivar man har köpt och ta så mycket pengar som ingredienserna kostar
+                            (shopKeeper.inventoryKnife, shopKeeper.money) = shop.BuyKnife(input, shopKeeper.inventoryKnife, shop.stock, knife.cost, shopKeeper.money);//Kommer lägga in antal knivar man har köpt och ta så mycket pengar som ingredienserna kostar. Denna kod använder sig av Tuples
                             shopKeeper.cursedItem = knife.Cursed(shopKeeper.cursedItem, shopKeeper.inventoryKnife, input);//Kommer kanske göra om en av ingredianserna till cursed och den läggs in i en cursed item lista
 
 
@@ -87,13 +87,13 @@ namespace november_projekt
                         else if (input == "fork")
                         {
 
-                            (shopKeeper.inventoryFork, shopKeeper.money) = shop.BuyFork(input, shopKeeper.inventoryFork, shop.stock, fork.cost, shopKeeper.money);//Kommer lägga in antal gafflar man har köpt och ta så mycket pengar som ingredienserna kostar
+                            (shopKeeper.inventoryFork, shopKeeper.money) = shop.BuyFork(input, shopKeeper.inventoryFork, shop.stock, fork.cost, shopKeeper.money);//Kommer lägga in antal gafflar man har köpt och ta så mycket pengar som ingredienserna kostar. Denna kod använder sig av Tuples
                             shopKeeper.cursedItem = fork.Cursed(shopKeeper.cursedItem, shopKeeper.inventoryFork, input);//Kommer kanske göra om en av ingredianserna till cursed och den läggs in i en cursed item lista
                         }
                         else if (input == "spork")
                         {
 
-                            (shopKeeper.inventorySpork, shopKeeper.money) = shop.BuySpork(input, shopKeeper.inventorySpork, shop.stock, spork.cost, shopKeeper.money);//Kommer lägga in antal sporks man har köpt och ta så mycket pengar som ingredienserna kostar
+                            (shopKeeper.inventorySpork, shopKeeper.money) = shop.BuySpork(input, shopKeeper.inventorySpork, shop.stock, spork.cost, shopKeeper.money);//Kommer lägga in antal sporks man har köpt och ta så mycket pengar som ingredienserna kostar. Denna kod använder sig av Tuples
                             shopKeeper.cursedItem = spork.Cursed(shopKeeper.cursedItem, shopKeeper.inventorySpork, input);//Kommer kanske göra om en av ingredianserna till cursed och den läggs in i en cursed item lista
 
                         }
