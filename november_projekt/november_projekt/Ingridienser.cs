@@ -9,7 +9,7 @@ namespace november_projekt
     class Ingridiens
     {
 
-        public string name;// I subklasserna kommer detta vara deras namn
+        public string name;  // I subklasserna kommer detta vara deras namn
         public int cost; //Hur mycket ingrediensen kostar
         public string description;// Är en string som beskriver ingrediensen och hintar till vilken potion den ska användas till
 
